@@ -1,12 +1,17 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
 import { useTRPC } from "@/trpc/client";
-import Image from "next/image";
+import { useMutation } from "@tanstack/react-query";
 
 export default function Home() {
   const trpc = useTRPC();
-  
+  const invoke = useMutation(trpc.invoke.mutationOptions({}))
   return (
-    <div>
-
+    <div className="p-4 max-w-7xl mx-auto">
+      <Button onClick={()=> }>
+        Invoke Background Job
+      </Button>
     </div>
   );
 }
